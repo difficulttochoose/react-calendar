@@ -1,7 +1,7 @@
 import React from "react";
 import Week from "../Week";
 import { getWeeksInMonth, getWeek, format } from "date-fns";
-import styles from "./Month.module.css";
+import styles from "./Month.module.scss";
 import classNames from "classnames";
 
 function Month(props) {

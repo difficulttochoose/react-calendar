@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./CalendarDate.module.css";
+import styles from "./CalendarDate.module.scss";
 import classNames from "classnames";
 
 function CalendarDate(props) {

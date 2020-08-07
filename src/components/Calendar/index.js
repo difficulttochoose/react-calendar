@@ -3,7 +3,7 @@ import Month from "./Month";
 import Day from "./Day";
 import { format } from "date-fns";
 import { getYear, getMonth } from "date-fns";
-import styles from "./Calendar.module.css";
+import styles from "./Calendar.module.scss";
 import classNames from "classnames";
 
 class Calendar extends Component {

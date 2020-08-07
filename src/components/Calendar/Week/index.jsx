@@ -10,7 +10,7 @@ import {
   isThisMonth,
   isToday,
 } from "date-fns";
-import styles from "./Week.module.css";
+import styles from "./Week.module.scss";
 import classNames from "classnames";
 
 function Week(props) {

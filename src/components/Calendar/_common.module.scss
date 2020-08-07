@@ -1,0 +1,17 @@
+$important: #ed4c57;
+$secondary-color: #3e9a92;
+$primary-font-size: x-large;
+$secondary-font-size: xx-large;
+$header-line-height: 2em;
+$text-transform: uppercase;
+$flex-direction: row;
+$primary-font-weight: bolder;
+
+%flex-block {
+  display: flex;
+  justify-content: space-between;
+}
+%font {
+  font-weight: bold;
+  font-size: $primary-font-size;
+}
