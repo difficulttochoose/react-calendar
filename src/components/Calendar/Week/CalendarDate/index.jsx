@@ -5,14 +5,15 @@ import classNames from "classnames";
 function CalendarDate(props) {
   const { date, isCurrentMonthDate, isCurrent } = props;
   return (
-    <td
+    <div
       className={classNames({
+        [styles.thisMonthDate]: isCurrentMonthDate && !isCurrent,
+        [styles.otherMonthDate]: !isCurrentMonthDate,
         [styles.current]: isCurrent,
-        [styles.thisMonthDate]: !isCurrentMonthDate,
       })}
     >
       {date}
-    </td>
+    </div>
   );
 }
 

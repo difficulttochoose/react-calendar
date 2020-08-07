@@ -1,6 +1,8 @@
 import React from "react";
 import Week from "../Week";
 import { getWeeksInMonth, getWeek, format } from "date-fns";
+import styles from "./Month.module.css";
+import classNames from "classnames";
 
 function Month(props) {
   const { year, month } = props;
@@ -13,23 +15,23 @@ function Month(props) {
     console.log("WEEKS", weeks);
   }
   return (
-    <table>
-      <caption>
+    <div className={classNames([styles.wrapper])}>
+      <div className={classNames([styles.name])}>
         {format(month, "MMMM")} {year}
-      </caption>
-      <thead>
-        <tr>
-          <th>s</th>
-          <th>m</th>
-          <th>t</th>
-          <th>w</th>
-          <th>t</th>
-          <th>f</th>
-          <th>s</th>
-        </tr>
-      </thead>
-      <tbody>{weeks}</tbody>
-    </table>
+      </div>
+      <div className={classNames([styles.tableWrapper])}>
+        <div className={classNames([styles.weekDaysNames])}>
+          <div>s</div>
+          <div>m</div>
+          <div>t</div>
+          <div>w</div>
+          <div>t</div>
+          <div>f</div>
+          <div>s</div>
+        </div>
+        <div>{weeks}</div>
+      </div>
+    </div>
   );
 }
 

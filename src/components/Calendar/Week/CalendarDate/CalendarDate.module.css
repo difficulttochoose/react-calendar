@@ -1,6 +1,17 @@
 .current {
-  color: red;
+  color: #ed4c57;
+  border: 4px solid #ed4c57 !important;
+  border-radius: 50%;
 }
 .thisMonthDate {
-  color: gray;
+  color: #b7b7b7;
+}
+.otherMonthDate {
+  color: transparent;
+}
+.thisMonthDate,
+.otherMonthDate,
+.current {
+  font-weight: bold;
+  font-size: x-large;
 }

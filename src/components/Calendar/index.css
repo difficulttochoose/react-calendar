@@ -1,7 +1,8 @@
 @import "../reset.css";
-
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;700&display=swap");
 * {
   box-sizing: border-box;
+  /* font-family: "Roboto Condensed", sans-serif; */
 }
 
 :root {
@@ -28,7 +29,7 @@
 .current-month-name {
   color: #3e9a92;
 }
-.current-month-table {
+.dates {
   color: #b7b7b7;
 }
 .selected-current-date {

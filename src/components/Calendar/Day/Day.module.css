@@ -1,0 +1,15 @@
+@import "../index.css";
+
+.date {
+  font-size: 17rem;
+  line-height: 1.3em;
+}
+.wrapper {
+  background-color: #55cec4;
+  color: white;
+}
+.dayName {
+  text-transform: uppercase;
+  font-size: xx-large;
+  line-height: 2em;
+}

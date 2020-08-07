@@ -1,0 +1,17 @@
+@import "./index.css";
+
+.wrapper {
+  border: 1rem solid #3e9a92;
+  font-family: "Roboto Condensed", sans-serif;
+  max-width: 1000px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+}
+.wrapper > * {
+  width: 100%;
+  text-align: center;
+  align-self: stretch;
+  padding: 40px 20px;
+}
