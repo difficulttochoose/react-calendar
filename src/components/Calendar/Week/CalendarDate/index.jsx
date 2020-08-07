@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./CalendarDate.module.scss";
 import classNames from "classnames";
+import PropTypes from "prop-types";
 
 function CalendarDate(props) {
   const { date, isCurrentMonthDate, isCurrent } = props;
@@ -16,5 +17,11 @@ function CalendarDate(props) {
     </div>
   );
 }
+
+CalendarDate.propTypes = {
+  date: PropTypes.number.isRequired,
+  isCurrentMonthDate: PropTypes.bool.isRequired,
+  isCurrent: PropTypes.bool.isRequired,
+};
 
 export default CalendarDate;

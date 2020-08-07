@@ -12,6 +12,7 @@ import {
 } from "date-fns";
 import styles from "./Week.module.scss";
 import classNames from "classnames";
+import PropTypes from "prop-types";
 
 function Week(props) {
   const { week } = props;
@@ -33,5 +34,9 @@ function Week(props) {
   }
   return <div className={classNames([styles.week])}>{calendarDates}</div>;
 }
+
+Week.propTypes = {
+  week: PropTypes.number.isRequired,
+};
 
 export default Week;

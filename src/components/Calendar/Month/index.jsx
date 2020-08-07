@@ -3,6 +3,7 @@ import Week from "../Week";
 import { getWeeksInMonth, getWeek, format } from "date-fns";
 import styles from "./Month.module.scss";
 import classNames from "classnames";
+import PropTypes from "prop-types";
 
 function Month(props) {
   const { year, month } = props;
@@ -34,5 +35,10 @@ function Month(props) {
     </div>
   );
 }
+
+Month.propTypes = {
+  year: PropTypes.number.isRequired,
+  month: PropTypes.number.isRequired,
+};
 
 export default Month;
