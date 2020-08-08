@@ -13,7 +13,6 @@ function Month(props) {
   const weeks = [];
   for (let i = firstWeek; i < firstWeek + weeksInMonth; ++i) {
     weeks.push(<Week key={i} week={i} />);
-    console.log("WEEKS", weeks);
   }
   return (
     <div className={classNames([styles.wrapper])}>

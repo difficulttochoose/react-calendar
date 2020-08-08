@@ -25,6 +25,7 @@ function Week(props) {
   for (let i = startDate; i <= endDate; ++i) {
     calendarDates.push(
       <CalendarDate
+        key={`${i}${week}`}
         date={getDate(weekDay)}
         isCurrentMonthDate={isThisMonth(weekDay)}
         isCurrent={isToday(weekDay)}
