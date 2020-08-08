@@ -8,7 +8,7 @@ function Day(props) {
   return (
     <div className={classNames([styles.wrapper])}>
       <p className={classNames([styles.dayName])}>{weekDay}</p>
-      <div className={classNames([styles.date], [])}>{date}</div>
+      <div className={classNames([styles.date])}>{date}</div>
     </div>
   );
 }
