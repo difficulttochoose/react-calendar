@@ -2,7 +2,6 @@ import React from "react";
 import Week from "../Week";
 import { getWeeksInMonth, getWeek, format } from "date-fns";
 import styles from "./Month.module.scss";
-import classNames from "classnames";
 import PropTypes from "prop-types";
 
 function Month(props) {
@@ -15,12 +14,12 @@ function Month(props) {
     weeks.push(<Week key={i} week={i} />);
   }
   return (
-    <div className={classNames([styles.wrapper])}>
-      <div className={classNames([styles.name])}>
+    <div className={styles.wrapper}>
+      <div className={styles.name}>
         {format(month, "MMMM")} {year}
       </div>
-      <div className={classNames([styles.tableWrapper])}>
-        <div className={classNames([styles.weekDaysNames])}>
+      <div className={styles.tableWrapper}>
+        <div className={styles.weekDaysNames}>
           <div>s</div>
           <div>m</div>
           <div>t</div>

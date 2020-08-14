@@ -11,7 +11,6 @@ import {
   isToday,
 } from "date-fns";
 import styles from "./Week.module.scss";
-import classNames from "classnames";
 import PropTypes from "prop-types";
 
 function Week(props) {
@@ -33,7 +32,7 @@ function Week(props) {
     );
     weekDay = addDays(weekDay, 1);
   }
-  return <div className={classNames([styles.week])}>{calendarDates}</div>;
+  return <div className={styles.week}>{calendarDates}</div>;
 }
 
 Week.propTypes = {
