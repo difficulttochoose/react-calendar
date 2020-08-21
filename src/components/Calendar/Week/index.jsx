@@ -1,42 +1,22 @@
 import React from "react";
 import CalendarDate from "./CalendarDate";
-import {
-  startOfWeek,
-  endOfWeek,
-  addDays,
-  getDate,
-  getDay,
-  setWeek,
-  isThisMonth,
-  isToday,
-} from "date-fns";
+import { startOfWeek, endOfWeek, eachDayOfInterval } from "date-fns";
 import styles from "./Week.module.scss";
 import PropTypes from "prop-types";
 
 function Week(props) {
-  const { week } = props;
-  const date = new Date();
-  let weekDate = setWeek(date, week);
-  let weekDay = startOfWeek(weekDate);
-  const startDate = getDay(weekDay);
-  const endDate = getDay(endOfWeek(weekDate));
-  const calendarDates = [];
-  for (let i = startDate; i <= endDate; ++i) {
-    calendarDates.push(
-      <CalendarDate
-        key={`${i}${week}`}
-        date={getDate(weekDay)}
-        isCurrentMonthDate={isThisMonth(weekDay)}
-        isCurrent={isToday(weekDay)}
-      />
-    );
-    weekDay = addDays(weekDay, 1);
-  }
-  return <div className={styles.week}>{calendarDates}</div>;
+  const { weekStart } = props;
+
+  const weekDates = eachDayOfInterval({
+    start: startOfWeek(weekStart),
+    end: endOfWeek(weekStart),
+  }).map((i) => <CalendarDate key={`${i}${weekStart}`} date={i} />);
+
+  return <tr className={styles.week}>{weekDates}</tr>;
 }
 
 Week.propTypes = {
-  week: PropTypes.number.isRequired,
+  weekStart: PropTypes.instanceOf(Date).isRequired,
 };
 
 export default Week;

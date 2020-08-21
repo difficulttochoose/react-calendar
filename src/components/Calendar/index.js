@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 import Month from "./Month";
 import Day from "./Day";
-import { format } from "date-fns";
-import { getYear, getMonth } from "date-fns";
 import styles from "./Calendar.module.scss";
-import classNames from "classnames";
 
 class Calendar extends Component {
   constructor(props) {
@@ -18,12 +15,9 @@ class Calendar extends Component {
   render() {
     const { currentDate } = this.state;
     return (
-      <div className={classNames([styles.wrapper])}>
-        <Day
-          weekDay={format(currentDate, "EEEE")}
-          date={format(currentDate, "d")}
-        />
-        <Month year={getYear(currentDate)} month={getMonth(currentDate)} />
+      <div className={styles.wrapper}>
+        <Day date={currentDate} />
+        <Month date={currentDate} />
       </div>
     );
   }

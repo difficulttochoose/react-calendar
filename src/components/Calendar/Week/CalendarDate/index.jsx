@@ -2,26 +2,27 @@ import React from "react";
 import styles from "./CalendarDate.module.scss";
 import classNames from "classnames";
 import PropTypes from "prop-types";
+import { getDate, isThisMonth, isToday } from "date-fns";
 
 function CalendarDate(props) {
-  const { date, isCurrentMonthDate, isCurrent } = props;
+  const { date } = props;
+  const currentMonth = isThisMonth(date);
+  const currentDate = isToday(date);
   return (
-    <div
+    <td
       className={classNames({
-        [styles.thisMonthDate]: isCurrentMonthDate && !isCurrent,
-        [styles.otherMonthDate]: !isCurrentMonthDate,
-        [styles.current]: isCurrent,
+        [styles.thisMonthDate]: currentMonth,
+        [styles.otherMonthDate]: !currentMonth,
+        [styles.thisMonthDate_current]: currentDate,
       })}
     >
-      {date}
-    </div>
+      {getDate(date)}
+    </td>
   );
 }
 
 CalendarDate.propTypes = {
-  date: PropTypes.number.isRequired,
-  isCurrentMonthDate: PropTypes.bool.isRequired,
-  isCurrent: PropTypes.bool.isRequired,
+  date: PropTypes.instanceOf(Date).isRequired,
 };
 
 export default CalendarDate;

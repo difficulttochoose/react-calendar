@@ -1,42 +1,39 @@
 import React from "react";
 import Week from "../Week";
-import { getWeeksInMonth, getWeek, format } from "date-fns";
+import { format, startOfMonth } from "date-fns";
+import { eachWeekOfInterval, endOfMonth } from "date-fns/esm";
 import styles from "./Month.module.scss";
 import PropTypes from "prop-types";
 
 function Month(props) {
-  const { year, month } = props;
-  const date = new Date(year, month);
-  const firstWeek = getWeek(date);
-  const weeksInMonth = getWeeksInMonth(date);
-  const weeks = [];
-  for (let i = firstWeek; i < firstWeek + weeksInMonth; ++i) {
-    weeks.push(<Week key={i} week={i} />);
-  }
+  const { date } = props;
+
+  const weeks = eachWeekOfInterval({
+    start: startOfMonth(date),
+    end: endOfMonth(date),
+  }).map((i) => <Week key={i} weekStart={i} />);
+
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.name}>
-        {format(month, "MMMM")} {year}
-      </div>
-      <div className={styles.tableWrapper}>
-        <div className={styles.weekDaysNames}>
-          <div>s</div>
-          <div>m</div>
-          <div>t</div>
-          <div>w</div>
-          <div>t</div>
-          <div>f</div>
-          <div>s</div>
-        </div>
-        <div>{weeks}</div>
-      </div>
-    </div>
+    <table className={styles.wrapper}>
+      <caption className={styles.name}>{format(date, "MMMM yyyy")}</caption>
+      <thead className={styles.tableWrapper}>
+        <tr className={styles.weekDaysNames}>
+          <th>s</th>
+          <th>m</th>
+          <th>t</th>
+          <th>w</th>
+          <th>t</th>
+          <th>f</th>
+          <th>s</th>
+        </tr>
+      </thead>
+      <tbody>{weeks}</tbody>
+    </table>
   );
 }
 
 Month.propTypes = {
-  year: PropTypes.number.isRequired,
-  month: PropTypes.number.isRequired,
+  date: PropTypes.instanceOf(Date).isRequired,
 };
 
 export default Month;

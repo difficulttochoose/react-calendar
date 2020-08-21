@@ -1,7 +1,7 @@
 @import "../../common.module";
 
-.current {
-  color: $important;
+.thisMonthDate_current {
+  color: $important !important;
   border: 4px solid $important !important;
   border-radius: 50%;
   @extend %font;
