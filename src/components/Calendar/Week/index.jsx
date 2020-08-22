@@ -5,18 +5,18 @@ import styles from "./Week.module.scss";
 import PropTypes from "prop-types";
 
 function Week(props) {
-  const { weekStart } = props;
+  const { date } = props;
 
   const weekDates = eachDayOfInterval({
-    start: startOfWeek(weekStart),
-    end: endOfWeek(weekStart),
-  }).map((i) => <CalendarDate key={`${i}${weekStart}`} date={i} />);
+    start: startOfWeek(date),
+    end: endOfWeek(date),
+  }).map((d) => <CalendarDate key={`${d}${date}`} date={d} />);
 
   return <tr className={styles.week}>{weekDates}</tr>;
 }
 
 Week.propTypes = {
-  weekStart: PropTypes.instanceOf(Date).isRequired,
+  date: PropTypes.instanceOf(Date).isRequired,
 };
 
 export default Week;

@@ -11,7 +11,7 @@ function Month(props) {
   const weeks = eachWeekOfInterval({
     start: startOfMonth(date),
     end: endOfMonth(date),
-  }).map((i) => <Week key={i} weekStart={i} />);
+  }).map((d) => <Week key={d} date={d} />);
 
   return (
     <table className={styles.wrapper}>
